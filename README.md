@@ -1,4 +1,4 @@
-# GO_JWT
+# GO Project
 
 ## Install Dependencies
 - go get -u gorm.io/gorm
@@ -16,3 +16,9 @@
 - go get github.com/githubnemo/CompileDaemon
 
 - go install github.com/githubnemo/CompileDaemon
+
+
+## Environment Variable
+- PORT = ***
+- SECRET = ********
+- DB = "****"
