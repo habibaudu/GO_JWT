@@ -10,6 +10,7 @@ import ("github.com/gin-gonic/gin"
 		"github.com/golang-jwt/jwt/v4"
 		
 )
+
 func Signup(c *gin.Context){
 	var body struct {
 		Email string
@@ -111,6 +112,15 @@ func Login(c *gin.Context){
 	c.JSON(http.StatusOK,gin.H{
 		
 		// "token":tokenString,
+	})
+
+}
+
+
+func Validate(c *gin.Context){
+	user,_ := c.Get("user")
+	c.JSON(http.StatusOK,gin.H{
+		"message":user,
 	})
 
 }
