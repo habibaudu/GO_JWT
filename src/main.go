@@ -16,9 +16,10 @@ func init(){
 func main(){
 	router := gin.Default()
 
-	router.POST("/signup", controllers.Signup)
-	router.POST("/login",controllers.Login)
-	router.GET("/validate",middleware.RequireAuth,controllers.Validate)
+	router.POST("api/v1/signup", controllers.Signup)
+	router.POST("api/v1/login",controllers.Login)
+	router.POST("api/v1/product",middleware.RequireAuth,controllers.Product)
+	router.GET("api/v1/validate",middleware.RequireAuth,controllers.Validate)
 
 	router.Run()
 }
