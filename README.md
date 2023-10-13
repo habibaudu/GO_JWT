@@ -36,6 +36,7 @@ Store Manager is a web application that helps store owners manage sales and prod
   - POST: /api/v1/login
   - POST: /api/v1/product
   - POST: /api/v1/signup
+  - POST: /api/v1/products
 
 ## Fire up Postman
   Enter the following routes
@@ -47,3 +48,6 @@ Store Manager is a web application that helps store owners manage sales and prod
 
  - POST : localhost:8080/api/v1/product
         To creat a single record
+
+ - GET : localhost:8080/api/v1/products
+        Get all products
