@@ -7,6 +7,8 @@ import (
         "net/http"		
 )
 
+type Products model.Product
+
 func Product(c *gin.Context){
 	var body struct {
 		Productname string
@@ -42,4 +44,24 @@ func Product(c *gin.Context){
 	c.JSON(http.StatusOK,gin.H{
 		"message":product,
 	})
+}
+
+func Get_Products(c *gin.Context){
+    var products []Products
+	
+
+	results := initializers.DB.Find(&products)
+
+	if results.Error != nil{
+		c.JSON(http.StatusBadRequest,gin.H{
+			"Error":"Failed to get Products",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK,gin.H{
+		"message":products,
+		"Count":results.RowsAffected,
+	})
+
 }
