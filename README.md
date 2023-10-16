@@ -54,3 +54,6 @@ Store Manager is a web application that helps store owners manage sales and prod
 
  - GET : localhost:8080/api/v1/product/:id
         Get a product by id
+
+- DELETE : localhost:8080/api/v1/product/:id
+        DELETE a product by id
