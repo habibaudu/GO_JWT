@@ -21,6 +21,7 @@ func main(){
 	router.POST("api/v1/product",middleware.RequireAuth,controllers.Product)
 	router.GET("api/v1/validate",middleware.RequireAuth,controllers.Validate)
 	router.GET("api/v1/products",middleware.RequireAuth,controllers.Get_Products)
+	router.GET("api/v1/product/:id",middleware.RequireAuth,controllers.Get_A_Product)
 
 	router.Run()
 }
