@@ -9,6 +9,7 @@ import (
 
 type Products model.Product
 
+
 func Product(c *gin.Context){
 	var body struct {
 		Productname string
@@ -64,4 +65,23 @@ func Get_Products(c *gin.Context){
 		"Count":results.RowsAffected,
 	})
 
+}
+
+func Get_A_Product(c *gin.Context){
+	var product []Products
+
+	id := c.Param("id")
+
+	results := initializers.DB.First(&product,id)
+
+	if results.Error != nil{
+		c.JSON(http.StatusBadRequest,gin.H{
+			"Error":"Product Not Found",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK,gin.H{
+		"Message": product,
+	})
 }
