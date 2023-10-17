@@ -23,6 +23,7 @@ func main(){
 	router.GET("api/v1/products",middleware.RequireAuth,controllers.Get_Products)
 	router.GET("api/v1/product/:id",middleware.RequireAuth,controllers.Get_A_Product)
 	router.DELETE("api/v1/product/:id",middleware.RequireAuth,controllers.Delete_A_Product)
+	router.PATCH("api/v1/product/:id",middleware.RequireAuth,controllers.Update_A_Product)
 
 	router.Run()
 }
