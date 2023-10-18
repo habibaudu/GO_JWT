@@ -47,7 +47,7 @@ Store Manager is a web application that helps store owners manage sales and prod
         Enter password and username click send to login 
 
  - POST : localhost:8080/api/v1/product
-        To creat a single record
+        To create a single record
 
  - GET : localhost:8080/api/v1/products
         Get all products
@@ -60,3 +60,7 @@ Store Manager is a web application that helps store owners manage sales and prod
 
 - PATCH : localhost:8080/api/v1/product/:id
          UPDATE a product by id
+
+- POST : localhost:8080/api/v1/sales
+         To Create a Single sales Record
+
