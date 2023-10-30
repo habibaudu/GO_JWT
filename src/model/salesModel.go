@@ -6,4 +6,5 @@ type Sales struct {
 	gorm.Model
 	Attendant string `gorm:"unique"`
 	Totalprice int
+	ProductSalesID uint
   }

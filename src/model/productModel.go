@@ -8,5 +8,6 @@ type Product struct{
 	Price int
 	Quantity int 
 	Description string
+	ProductSales uint
 }
 
