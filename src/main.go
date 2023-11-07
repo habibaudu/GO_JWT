@@ -25,6 +25,7 @@ func main(){
 	router.DELETE("api/v1/product/:id",middleware.RequireAuth,controllers.Delete_A_Product)
 	router.PATCH("api/v1/product/:id",middleware.RequireAuth,controllers.Update_A_Product)
 	router.POST("api/v1/sale",middleware.RequireAuth,controllers.Sales)
+	router.POST("api/v1/productsale",middleware.RequireAuth,controllers.ProductSales)
 
 	router.Run()
 }
