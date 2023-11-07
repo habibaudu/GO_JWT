@@ -1,46 +1,47 @@
 package controllers
 
 import (
-	   "github.com/gin-gonic/gin"
-       "go-jwt/initializers"
-        "go-jwt/model"
-        "net/http"	
+	"go-jwt/initializers"
+	"go-jwt/model"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 
-func ProductSales(c *gin.Context){
-	var productsales struct {
-		Products int
-		Sales  int
+func ProductSales(c *gin.Context) {
+
+	var productsale struct {
 		Quantity int
-		Total int
+		Total    int
+		ProductID uint
 	}
-    
-	if c.Bind(&productsales) != nil{
-		c.JSON(http.StatusBadRequest,gin.H{
-			"error":"Failed to read body",
+
+	if c.Bind(&productsale) != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Failed to read body",
 		})
 
 		return
 	}
 
-	// Create the Product
+	// Create the Product Sales
 
-	product := model.ProductSales{Products:productsales.Products,
-		                     Sales:productsales.Sales,Quantity:products.Quantity,
-							 Description:products.Description}
+	productsales := model.ProductSales{ProductID: productsale.ProductID,
+		Quantity: productsale.Quantity, Total: productsale.Total}
 
-    result := initializers.DB.Create(&product)
+	result := initializers.DB.Create(&productsales)
 
-	if result.Error != nil{
-        c.JSON(http.StatusBadRequest,gin.H{
-			"error":"Failed to create product",
+	if result.Error != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Failed to create product sale",
+			"message":productsales,
 		})
 
 		return
 	}
 
-	c.JSON(http.StatusOK,gin.H{
-		"message":product,
+	c.JSON(http.StatusOK, gin.H{
+		"message": productsales,
 	})
 }

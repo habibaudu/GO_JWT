@@ -4,10 +4,24 @@ import (
 	"gorm.io/gorm"
 )
 
-type ProductSales struct{
+type Product struct {
 	gorm.Model
-	Products  []Product
-	Sales  []Sales
-	Total int
-	Quantity int 
+	Productname  string
+	Price        int
+	Quantity     int
+	Description  string
+	ProductSales []ProductSales `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+}
+
+type Sales struct {
+	gorm.Model
+	Attendant  string `gorm:"unique"`
+	Totalprice int
+}
+
+type ProductSales struct {
+	gorm.Model
+	Total     int
+	Quantity  int
+	ProductID uint
 }
